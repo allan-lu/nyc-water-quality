@@ -18,7 +18,7 @@ for lyr in mygroup.findLayers():
     layer_data.sourceType = 1
     idw_interpolator = QgsIDWInterpolator([layer_data])
 
-    export_path = "C:/Users/allan/Desktop/Temporary/o2perc_season_idw/idw_{}.tif".format(layer.name())
+    export_path = "./output/o2perc_season_idw/idw_{}.tif".format(layer.name())
     rect = coast_lyr.extent()
     res = 100
     ncols = int((rect.xMaximum() - rect.xMinimum()) / res)
@@ -27,7 +27,7 @@ for lyr in mygroup.findLayers():
     output.writeFile()
     
     # Clip raster
-    clipped_output = "E:/Hunter 2019 Fall/GTECH 732/Project/Data/Geopackages/water_quality/o2perc_season_idw/clip_idw_{}.tif".format(layer.name())
+    clipped_output = "./output/o2perc_season_idw/clip_idw_{}.tif".format(layer.name())
     params = {'INPUT': export_path,
               'MASK': coast_lyr,
               'NODATA': None,
